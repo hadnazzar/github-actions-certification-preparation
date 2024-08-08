@@ -6,7 +6,7 @@ jobs:
   show-info: 
     runs-on: ubuntu-latest
     steps:
+    - name: Print time
+      run: date
     - name: Info
-      run: |
-        echo "Running scheduled event every 5 minutes"
-      
+      run: echo "Running scheduled event every 5 minutes"
