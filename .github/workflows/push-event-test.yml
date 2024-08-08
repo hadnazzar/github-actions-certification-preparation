@@ -1,0 +1,12 @@
+name: Push events
+on: 
+  push:
+    branches: 
+      - test
+jobs: 
+  show-info: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: info
+        run: |
+          echo "This is a push event on test branch"
