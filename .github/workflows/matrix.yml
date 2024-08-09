@@ -1,5 +1,4 @@
 name: Matrix example
-
 on:
   push:
     branches:
