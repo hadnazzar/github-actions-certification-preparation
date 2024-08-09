@@ -1,0 +1,17 @@
+name: Read environment variable
+on:
+  push:
+    branches:
+      - feat/env-test
+jobs:
+  read-env:
+    runs-on: ubuntu-latest
+    env:
+      APP_MODE: ${{vars.APP_MODE}}
+      WORKFLOW_ENV_VARIABLE: 'This is a workflow environment variable'
+    steps:
+      - name: Read environment variable
+        run: | 
+          echo "The value of APP_MODE is $APP_MODE"
+          echo "The value of WORKFLOW_ENV_VARIABLE is $WORKFLOW_ENV_VARIABLE"
+
