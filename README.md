@@ -1,4 +1,4 @@
-# github-actions-certification-preparation
+# github-actions-certification-preparation --- [![node.js CI](https://github.com/hadnazzar/github-actions-certification-preparation/actions/workflows/main.yml/badge.svg)](https://github.com/hadnazzar/github-actions-certification-preparation/actions/workflows/main.yml)
 
 - Express with Typescript
 
