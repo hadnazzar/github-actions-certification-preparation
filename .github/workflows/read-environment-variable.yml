@@ -48,3 +48,9 @@ jobs:
           echo "The value of GITHUB_RUN_NUMBER is $GITHUB_RUN_NUMBER"
           echo "The value of GITHUB_RETENTION_DAYS is $GITHUB_RETENTION_DAYS"
           echo "The value of GITHUB_SERVER_URL is $GITHUB_SERVER_URL"
+  display-secret-variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display secret variables
+        run: |
+          echo "The value of MY_SECRET is $MY_SECRET"
