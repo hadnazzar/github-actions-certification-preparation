@@ -1,60 +1,21 @@
-name: Publish NPM
-
+name: Publish Package to npmjs
 on:
-  push:
-    branches:
-      - master
-
+  release:
+    types: [ published ]
 jobs:
-  build-package:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
+      id-token: write
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Package the app
-        run: npm pack
-
-      - name: Upload the package
-        uses: actions/upload-artifact@v4
-        with:
-          name: package
-          path: "*.tgz"
-
-  publish:
-    runs-on: ubuntu-latest
-    needs: build-package
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - name: Download the package
-        uses: actions/download-artifact@v4
-        with:
-          name: package
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+          node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
-          scope: '@hadnazzar'
-
-      - name: Configure npm for publishing
-        run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}" > ~/.npmrc
-
-      - name: Publish to NPM
-        run: npm publish *.tgz
+      - run: npm ci
+      - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
