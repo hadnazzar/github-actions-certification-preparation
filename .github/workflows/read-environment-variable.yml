@@ -2,7 +2,7 @@ name: Read environment variable
 on:
   push:
     branches:
-      - feat/env-test
+      - master
 jobs:
   read-env:
     runs-on: ubuntu-latest
@@ -14,4 +14,37 @@ jobs:
         run: | 
           echo "The value of APP_MODE is $APP_MODE"
           echo "The value of WORKFLOW_ENV_VARIABLE is $WORKFLOW_ENV_VARIABLE"
-
+  display-default-variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display default variables
+        run: |
+          echo "The value of GITHUB_REPOSITORY is $GITHUB_REPOSITORY"
+          echo "The value of GITHUB_SHA is $GITHUB_SHA"
+          echo "The value of GITHUB_REF is $GITHUB_REF"
+          echo "The value of GITHUB_HEAD_REF is $GITHUB_HEAD_REF"
+          echo "The value of GITHUB_ACTOR is $GITHUB_ACTOR"
+          echo "The value of GITHUB_WORKFLOW is $GITHUB_WORKFLOW"
+          echo "The value of GITHUB_ACTION is $GITHUB_ACTION"
+          echo "The value of GITHUB_EVENT_NAME is $GITHUB_EVENT_NAME"
+          echo "The value of GITHUB_EVENT_PATH is $GITHUB_EVENT_PATH"
+          echo "The value of GITHUB_WORKSPACE is $GITHUB_WORKSPACE"
+          echo "The value of GITHUB_SHA is $GITHUB_SHA"
+          echo "The value of GITHUB_RUN_ID is $GITHUB_RUN_ID"
+          echo "The value of GITHUB_RUN_NUMBER is $GITHUB_RUN_NUMBER"
+          echo "The value of GITHUB_RETENTION_DAYS is $GITHUB_RETENTION_DAYS"
+          echo "The value of GITHUB_SERVER_URL is $GITHUB_SERVER_URL"
+          echo "The value of GITHUB_API_URL is $GITHUB_API_URL"
+          echo "The value of GITHUB_GRAPHQL_URL is $GITHUB_GRAPHQL_URL"
+          echo "The value of GITHUB_REF is $GITHUB_REF"
+          echo "The value of GITHUB_HEAD_REF is $GITHUB_HEAD_REF"
+          echo "The value of GITHUB_BASE_REF is $GITHUB_BASE_REF"
+          echo "The value of GITHUB_SERVER_URL is $GITHUB_SERVER_URL"
+          echo "The value of GITHUB_API_URL is $GITHUB_API_URL"
+          echo "The value of GITHUB_GRAPHQL_URL is $GITHUB_GRAPHQL_URL"
+          echo "The value of GITHUB_WORKSPACE is $GITHUB_WORKSPACE"
+          echo "The value of GITHUB_SHA is $GITHUB_SHA"
+          echo "The value of GITHUB_RUN_ID is $GITHUB_RUN_ID"
+          echo "The value of GITHUB_RUN_NUMBER is $GITHUB_RUN_NUMBER"
+          echo "The value of GITHUB_RETENTION_DAYS is $GITHUB_RETENTION_DAYS"
+          echo "The value of GITHUB_SERVER_URL is $GITHUB_SERVER_URL"
